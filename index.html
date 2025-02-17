@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeScript Labs</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(90deg, #4f46e5, #6366f1, #4f46e5);
+            background-size: 300% 300%;
+            animation: gradientAnimation 6s infinite alternate;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-in-out;
+        }
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 18px;
+            color: white;
+            background: linear-gradient(45deg, #4f46e5, #6366f1);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-in-out;
+        }
+        .button:hover {
+            transform: scale(1.1);
+            background: linear-gradient(45deg, #6366f1, #4f46e5);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>TypeScript Labs</h1>
+    <a href="./lab1/build/index.html" class="button">Lab 1</a>
+    <a href="./lab2/build/index.html" class="button">Lab 2</a>
+    <a href="./lab3/build/index.html" class="button">Lab 3</a>
+    <a href="./lab4/build/index.html" class="button">Lab 4</a>
+    <a href="./lab5/build/index.html" class="button">Lab 5</a>
+</body>
+</html>
