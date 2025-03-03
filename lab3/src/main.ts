@@ -1,3 +1,25 @@
+type CatalogItem = {
+  short_name: string;
+  name: string;
+  description: string;
+  price_retail: number;
+  price_wholesale: number;
+  amount_retail: string;
+  amount_wholesale: string;
+};
+
+type CategoryItem =  {
+  id: number;
+  name: string;
+  special_instructions: string;
+  short_name: string;
+  url: string;
+}
+
+type CategoryCatalogItems = {
+  category: CategoryItem;
+  catalog_items: CatalogItem[];
+}
 class CatalogService {
   private homeHtml = "snippets/home.html";
   private allCategoriesUrl = "data/catalog.json";
@@ -59,7 +81,7 @@ class CatalogService {
     this.buildAndShowCategoriesHTML(categories);
   }
 
-  private async buildAndShowCategoriesHTML(categories: any): Promise<void> {
+  private async buildAndShowCategoriesHTML(categories: CatalogItem[]): Promise<void> {
     const categoriesTitleHtml = await this.fetchHtml(this.categoriesTitleHtml);
     const categoryHTML = await this.fetchHtml(this.categoryHtml);
 
@@ -73,7 +95,7 @@ class CatalogService {
   }
 
   private buildCategoriesViewHtml(
-    categories: any[],
+    categories: CatalogItem[],
     categoriesTitleHtml: string,
     categoryHtml: string
   ): string {
@@ -101,7 +123,7 @@ class CatalogService {
   }
 
   private async buildAndShowCatalogItemsHTML(
-    categoryCatalogItems: any
+    categoryCatalogItems: CategoryCatalogItems
   ): Promise<void> {
     const catalogItemTitleHtml = await this.fetchHtml(
       this.catalogItemsTitleHtml
@@ -118,7 +140,7 @@ class CatalogService {
   }
 
   private buildCatalogItemsViewHtml(
-    categoryCatalogItems: any,
+    categoryCatalogItems: CategoryCatalogItems,
     catalogItemsTitleHtml: string,
     catalogItemHtml: string
   ): string {
@@ -217,4 +239,4 @@ class CatalogService {
   }
 }
 const catalogService = new CatalogService();
-(window as any).catalogService = catalogService;
+(window as unknown as { catalogService: CatalogService }).catalogService = catalogService;
